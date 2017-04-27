@@ -1,7 +1,7 @@
-function forEach(arr, cb){
-	for(var i = 0; i < arr.length; i++){
-		cb(arr[i], i, arr)
-	}
+var forEach = function(arr, func){
+    for(var i = 0 ; i < arr.length; i++){
+        func(arr[i], i, arr)
+    }
 }
 
 // GO!
@@ -9,20 +9,27 @@ function forEach(arr, cb){
 // TASK 1 -- Show/Hide Nav
 //Add a button into the answer-box that, when clicked, will toggle the visibility of the nav menu.
 //Hint: The easiest way is probably to add/remove the class nav-menu-hidden on the nav element.//
-document.querySelector('#hide-nav button').addEventListener('click', function(){
-  var navEl = document.querySelector('nav-menu');
-   navEl.classList.toggle('nav-menu-hidden')
+
+
+document.querySelector("#hide-nav button").addEventListener('click',function(){
+  var navEl = document.querySelector('nav');
+	navEl.classList.toggle('nav-menu-hidden');
   })
-
-
-
 
 
 // TASK 2 -- Select an Icon
 //When you click on an element it should add or remove a class of 'selected' to the element that was clicked.
 //Hint:You will likely want to use evt.currentTarget rather than evt.target
 
-
+var selectEls = document.querySelectorAll('option')
+forEach(selectEls, function(optionEl, i, Array){
+	optionEl.addEventListener('click', function(evt){
+		var targetEl = evt.currentTarget;
+		if (targetEl.className !== 'selected'){
+			targetEl.classList.toggle('selected')
+		}
+	})
+})
 
 
 
