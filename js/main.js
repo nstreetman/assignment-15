@@ -103,3 +103,14 @@ var probationListItemsEl = document.querySelectorAll('.probation-list li')
 //When an element is clicked, you will first need to remove whatever bg-«color»
 //class that exists on the <p class='msg'>' before adding
 //the new bg-«color» class from the clicked element.
+
+var colorfulSquaresEl = document.querySelectorAll('.palette')
+var weirdTextBoxEl = document.querySelector('.msg')
+
+forEach(colorfulSquaresEl, function(color, i, array){
+	color.addEventListener('click', function(evt){
+		var targetedSquare = evt.target
+		var targetedSquareClass = targetedSquare.className
+		weirdTextBoxEl.className = 'msg ' + targetedSquareClass
+	})
+})
