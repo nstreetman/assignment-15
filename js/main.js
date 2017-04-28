@@ -21,7 +21,7 @@ document.querySelector("#hide-nav button").addEventListener('click',function(){
 //When you click on an element it should add or remove a class of 'selected' to the element that was clicked.
 //Hint:You will likely want to use evt.currentTarget rather than evt.target
 
-var selectEls = document.querySelectorAll('option')
+var selectEls = document.querySelectorAll('.option')
 forEach(selectEls, function(optionEl, i, Array){
 	optionEl.addEventListener('click', function(evt){
 		var targetEl = evt.currentTarget;
@@ -35,7 +35,21 @@ forEach(selectEls, function(optionEl, i, Array){
 
 // TASK 3 --//When you click on a button with a number, it should increase the total by that amount.
 
-
+var circleElements = document.querySelectorAll('.point')
+var pointsTotalDiv = document.querySelector('.total-points')
+var pointsTotal = parseInt(pointsTotalDiv.textContent)
+	forEach(circleElements, function(buttonEls, i, Array){
+		buttonEls.addEventListener('click', function(evt){
+			var targetedCircle = evt.target
+				if(targetedCircle.className === 'point'){
+					var numOfPoints = parseInt(targetedCircle.textContent)
+					pointsTotal += numOfPoints;
+					// console.log(pointsTotal)
+					pointsTotalDiv.innerHTML = '<h4 class="total-points">' + pointsTotal + '</h4>'
+					// console.log(pointsTotalDiv)
+				}
+		})
+	})
 
 
 
