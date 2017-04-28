@@ -61,6 +61,33 @@ var pointsTotal = parseInt(pointsTotalDiv.textContent)
 //and put an event listener (.addEventListener) on each element.
 //Some properties/methods you may want to consider: .parentNode and .appendChild.
 
+var goodStandingListEl = document.querySelector('.good-standing-list')
+var probationListEl = document.querySelector('.probation-list')
+var goodStandingListItemsEl = document.querySelectorAll('.good-standing-list li')
+var probationListItemsEl = document.querySelectorAll('.probation-list li')
+
+	forEach(goodStandingListItemsEl, function(name, i, array){
+		name.addEventListener('click', function(evt){
+			var targetedName = evt.target
+				if(probationListEl.contains(targetedName) === false){
+					probationListEl.appendChild(targetedName)
+				}else{
+					goodStandingListEl.appendChild(targetedName)
+				}
+		})
+	})
+
+	forEach(probationListItemsEl, function(name, i, array){
+		name.addEventListener('click', function(evt){
+			var targetedName = evt.target
+			var nameOfTheTargetedName = targetedName.textContent
+			if(goodStandingListEl.contains(targetedName) === false){
+				goodStandingListEl.appendChild(targetedName)
+			}else{
+				probationListEl.appendChild(targetedName)
+			}
+		})
+	})
 
 
 
